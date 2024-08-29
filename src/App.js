@@ -40,9 +40,6 @@ function App() {
   return (
     <Provider store={appStore}>
       <RouterProvider router={router}>
-        {/* <div className="App">
-          <Body />
-        </div> */}
       </RouterProvider>
     </Provider>
   );

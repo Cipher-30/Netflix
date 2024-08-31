@@ -1,7 +1,3 @@
-
-
-
-
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -10,6 +6,9 @@ import Body from './components/Body';
 import LandingPage from './components/LandingPage';
 import SignIn from './components/SignIn';
 import Browse from "./components/Browse"
+import MainContainer from './components/MainContainer';
+import SecondaryContainer from './components/SecondaryContainer';
+import SearchGpt from './components/SearchGpt';
 
 
 // Define routes
@@ -31,7 +30,18 @@ const router = createBrowserRouter([
   {
     path:"/browse",
     element:<Browse/>,
-  }
+    children: [
+      {
+        path: "/browse",
+        element:<> <MainContainer/>
+      <SecondaryContainer/></>,
+      },
+      {
+        path: "/browse/search-gpt",
+        element:<SearchGpt/>,
+      },
+    ]
+  },
 ]);
 
 
@@ -50,126 +60,3 @@ export default App;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import './App.css';
-// import Body from './components/Body';
-// import { Provider } from 'react-redux';
-// import appStore from "./utils/appStore"
-
-
-
-
-// const routerApp = createBrowserRouter([
-      
-//   {
-
-//     path:'/',
-//     element: ,
-//     children: [
-       
-//     ]
-
-//   }
-   
-// ])
-
-
-
-
-
-
-// function App() {
-
-
-//   return (
-//     <Provider store={appStore}>
-
-//     <div className="App">
-//     <Body/>  
-//     </div>
-//     </Provider>
-//   );
-// }
-
-// export default App;

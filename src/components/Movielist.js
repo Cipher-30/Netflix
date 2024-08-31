@@ -1,7 +1,7 @@
 import React from 'react'
 import MovieCard from './MovieCard'
 
-const Movielist = ({movies, rated}) => {
+const Movielist = ({movies, rated , }) => {
 
 
   return (

@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import { validateCradentials } from '../utils/validates';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../utils/firebase';
+import { useSelector } from 'react-redux';
+import { languages } from '../utils/languageConstant';
 
 
 const SignIn = () => {
@@ -9,7 +11,9 @@ const SignIn = () => {
     const [errorMessage, setErrorMessage] = useState(null)
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
-
+ 
+    const languageSelected = useSelector( (store) => (store.language.language))
+     
     const validateHandler = () => {
         
          setErrorMessage(null);
@@ -65,20 +69,20 @@ const SignIn = () => {
             <form onSubmit={(e) => e.preventDefault()} >
                 {/* SIGN-IN */}
                 <section className='text-white'>
-                    <h1 className='font-bold text-4xl'> {isSignIn ? 'Sign In' : 'Sign Up'}</h1>
+                    <h1 className='font-bold text-4xl'> {isSignIn ? (languages[languageSelected].signIn) : (languages[languageSelected].signUp)}</h1>
 
                     <div className='flex flex-col gap-6 mt-8' >
 
-                        {isSignIn === false ? (<input type='text' className=' text-lg px-4 py-2 bg-transparent border border-gray-300' placeholder='Full Name' />) : (null)}
+                        {isSignIn === false ? (<input type='text' className=' text-lg px-4 py-2 bg-transparent border border-gray-300' placeholder={languages[languageSelected].fullName} />) : (null)}
 
 
-                        <input type='email' ref={emailRef} className=' text-lg px-4 py-2 bg-transparent border border-gray-300' placeholder='Email or Mobile Number' />
+                        <input type='email' ref={emailRef} className=' text-lg px-4 py-2 bg-transparent border border-gray-300' placeholder={languages[languageSelected].email} />
 
-                        <input type='Password' ref={passwordRef} className=' text-lg px-4 py-2 bg-transparent border border-gray-300' placeholder='Password' />
+                        <input type='Password' ref={passwordRef} className=' text-lg px-4 py-2 bg-transparent border border-gray-300' placeholder={languages[languageSelected].password} />
                         {errorMessage && (<span className='text-red-600 font-semibold'>{errorMessage}</span>)}
 
 
-                        <button className=' text-lg px-4 py-2 bg-red-600 rounded-md font-semibold ' onClick={validateHandler}  >{isSignIn ? "Sign In" : "Sign Up"}</button>
+                        <button className=' text-lg px-4 py-2  bg-red-600 rounded-md font-semibold ' onClick={validateHandler}  >{isSignIn ? (languages[languageSelected].signIn) : (languages[languageSelected].signUp)}</button>
 
 
                         <h1 className='text-center'>OR</h1>
@@ -89,7 +93,7 @@ const SignIn = () => {
                 </section>
 
                 <h1 className='text-white' >New to Netflix?<button className=' mx-2 cursor-pointer hover:border-b
-                ' onClick={() => { setIsSignIn(!isSignIn) }}>{isSignIn ? "Sign Up" : "Sign In" }</button></h1>
+                ' onClick={() => { setIsSignIn(!isSignIn) }}>{isSignIn ? (languages[languageSelected].signIn) : (languages[languageSelected].signUp)}</button></h1>
 
 
             </form>

@@ -6,7 +6,7 @@ const SecondaryContainer = () => {
 
    const movies = useSelector((store) => (store.movies.nowPlayingMovies))
    const rated = useSelector((store) => (store.movies.topRated))
-   console.log("moviesssss", movies);
+  //  console.log("moviesssss", movies);
    
   return (
     <div className='bg-black px-8 py-8'>

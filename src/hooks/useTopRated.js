@@ -13,7 +13,7 @@ const useTopRated = () =>
         {
           const data = await fetch(topRatedApi, options);
           const dataJson = await data.json();
-          console.log((dataJson));
+          // console.log((dataJson));
       
           dispatch(AddTopRated(dataJson.results));
           

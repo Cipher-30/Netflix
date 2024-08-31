@@ -4,6 +4,7 @@ import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 import MainContainer from './MainContainer'
 import SecondaryContainer from './SecondaryContainer'
 import useTopRated from "../hooks/useTopRated"
+import { Outlet } from 'react-router-dom'
 
 
 const Browse = () => {
@@ -20,8 +21,9 @@ const Browse = () => {
         <div className='  pt-4   px-8   bg-gradient-to-b from-black'><Header/></div>
         </nav>
       
-      <MainContainer/>
-      <SecondaryContainer/>
+      {/* <MainContainer/>
+      <SecondaryContainer/> */}
+      <Outlet/>
    
     </div>
   )

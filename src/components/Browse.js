@@ -17,8 +17,8 @@ const Browse = () => {
 
   return (
     <div  className='relative   '>
-      <nav className='absolute top-0 left-0 right-0 z-50'>
-        <div className='  pt-4   px-8   bg-gradient-to-b from-black'><Header/></div>
+      <nav className='absolute -top-9 sm:top-0 left-0 right-0 z-50 bg-black'>
+        <div className='  sm:pt-6   sm:px-2   bg-gradient-to-b from-black'><Header/></div>
         </nav>
       
       {/* <MainContainer/>

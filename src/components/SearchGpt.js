@@ -103,12 +103,12 @@ return (
             <div className='absolute inset-0 bg-gradient-to-b from-black to-transparent'>
                 <div className='pt-28 w-full min-h-screen'>
                     {/* SEARCH BAR */}
-                    <div className='flex justify-center'>
-                        <form className='flex items-center w-full max-w-xl' onSubmit={(e) => { e.preventDefault(); }}>
+                    <div className='flex mt-8 justify-center'>
+                        <form className='flex items-center   w-full max-w-xl' onSubmit={(e) => { e.preventDefault(); }}>
                             <input
                                 ref={refSearchText}
                                 type='text'
-                                className='w-full px-4 py-2 rounded-l-md border border-gray-700 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-600'
+                                className='w-full  px-4 py-2 rounded-l-md border border-gray-700 bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-600'
                                 placeholder={languages[languageSelected].placeholder}
                             />
                             <button
@@ -122,26 +122,27 @@ return (
 
                     {/* MOVIE CARDS */}
                     {sugMovies.length > 0 ? (
-                        <div className='flex flex-wrap mt-28 justify-center pt-12 bg-black bg-opacity-94 min-h-screen'>
-                            {sugMovies.map((obj) => (
-                                <div
-                                    key={obj.id}
-                                    className="overflow-hidden group cursor-pointer flex-shrink-0 bg-black mx-4 mb-8 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-                                >
-                                    <img
-                                        src={imageUrl + obj?.poster_path}
-                                        alt={'Movie Poster'}
-                                        className="w-full h-80 object-cover rounded-t-lg"
-                                    />
-                                    <h1 className="text-lg my-4 px-2 text-center text-white font-semibold truncate">
-                                        {obj?.title}
-                                    </h1>
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="text-white text-center text-xl mt-4"></div>
-                    )}
+    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  sm:px-6  px-1 gap-4 mt-28 justify-center pt-12 bg-black bg-opacity-94 min-h-screen'>
+        {sugMovies.map((obj) => (
+            <div
+                key={obj.id}
+                className="overflow-hidden group cursor-pointer bg-black rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            >
+                <img
+                    src={imageUrl + obj?.poster_path}
+                    alt={'Movie Poster'}
+                    className="w-full h-64 md:h-80 object-cover rounded-t-lg"
+                />
+                <h1 className="text-lg my-4 px-2 text-center text-white font-semibold truncate">
+                    {obj?.title}
+                </h1>
+            </div>
+        ))}
+    </div>
+) : (
+    <div className="text-white text-center text-xl mt-4">No movies available</div>
+)}
+
                 </div>
             </div>
         </section>

@@ -77,57 +77,66 @@ const Header = () => {
 
 
 
-  return (
-    <>
-        <header className='mt-0 z-30'>
-            <nav className='flex  justify-between items-center  '>
-             
-              {/* LEFT  */}
-                <div className=''>
-                <Link to={"/"}>
-                  <img className='w-[10rem] h-[4.5rem]' src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png' alt='logo' />
-                  </Link>
-                </div>
-
-              {/* RIGHT */}
-                <div className='flex gap-4'> 
-                     
-                     <select className='px-6 font-semibold bg-transparent text-white py-1 rounded-sm border border-gray-400'onClick={ (e) => languageHandler(e)}   name='language'>
-
-                      {supportedLanguages.map( (obj) => {
-                        return( <option key={obj?.identifier} className='text-black' value={obj?.identifier} >{obj?.language}</option> )
-                      })}
-                       
-                        {/* <option className='text-black' value={"english"} >English</option>
-                        <option className='text-black' value={"hindi"}>Hindi</option> */}
-                     </select>
-
-                     {userInfo && (<Link to={"/browse/search-gpt"}><button className= 'text-s font-semibold text-white bg-purple-600 rounded-md px-4 py-1 transition-all duration-150 ease-in-out hover:bg-purple-700' >
-                       GPT-Search
-                    </button>
-                     </Link>)}
-               
-
-
-                   {userInfo === null ? ( <Link to={"/signin"}>
-                    <button className= 'text-s font-semibold text-white bg-red-600 rounded-md px-4 py-1 transition-all duration-150 ease-in-out hover:bg-red-700' >
+    return (
+      <>
+        <header className=' mt-0 sm:px-8  pt-8 sm:pt-4  z-30 bg-black text-white'>
+          <nav className='flex justify-between items-center '>
+            {/* LEFT */}
+            <div>
+              <Link to='/'>
+                <img
+                  className='w-28 h-14 sm:w-40 sm:h-16'
+                  src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
+                  alt='logo'
+                />
+              </Link>
+            </div>
+  
+            {/* RIGHT */}
+            <div className='flex gap-1 sm:gap-4 items-center'>
+              <select
+                className=' sm:px-4 py-1 text-sm font-semibold bg-transparent text-white rounded-sm border border-gray-400'
+                onChange={languageHandler}
+                value={languageSelected}
+              >
+                {supportedLanguages.map((obj) => (
+                  <option
+                    key={obj?.identifier}
+                    className='text-black'
+                    value={obj?.identifier}
+                  >
+                    {obj?.language}
+                  </option>
+                ))}
+              </select>
+  
+              {userInfo && (
+                <Link to='/browse/search-gpt'>
+                  <button className='text-xs sm:text-sm font-semibold text-white bg-purple-600 rounded-md px-2 py-1 sm:px-4 sm:py-1 transition-all duration-150 ease-in-out hover:bg-purple-700'>
+                    GPT-Search
+                  </button>
+                </Link>
+              )}
+  
+              {userInfo === null ? (
+                <Link to='/signin'>
+                  <button className='text-xs sm:text-sm font-semibold text-white bg-red-600 rounded-md px-2 py-1 sm:px-4 sm:py-1 transition-all duration-150 ease-in-out hover:bg-red-700'>
                     {languages[languageSelected]?.signIn}
-                    </button>
-                    </Link> ) : (
-                    <button className= 'text-s font-semibold text-white bg-red-600 rounded-md px-4 py-1 transition-all duration-150 ease-in-out hover:bg-red-700 ' onClick={handleSignOut} >
-                        {languages[languageSelected].signOut}
-                    </button>)}
-
-
-
-                   
-
-                </div>
-
-            </nav>
+                  </button>
+                </Link>
+              ) : (
+                <button
+                  className='text-xs sm:text-sm font-semibold text-white bg-red-600 rounded-md px-2 py-1 sm:px-4 sm:py-1 transition-all duration-150 ease-in-out hover:bg-red-700'
+                  onClick={handleSignOut}
+                >
+                  {languages[languageSelected]?.signOut}
+                </button>
+              )}
+            </div>
+          </nav>
         </header>
-    </>
-  )
-}
-
+      </>
+    );
+  };
+  
 export default Header

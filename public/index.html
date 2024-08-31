@@ -31,12 +31,12 @@
       #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
       @media (max-width: 600px) {
         body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
+        body { border-top: 16px solid black; }
       }
     </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div style="background-color: black;" id="root"></div>
     <p id="load">Firebase SDK Loading&hellip;</p>
 
     <script>
@@ -74,7 +74,7 @@
               'remoteConfig',
               'performance',
             ].filter(feature => typeof app[feature] === 'function');
-            loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+            loadEl.textContent = ``;
           } catch (e) {
             console.error(e);
             loadEl.textContent = 'Error initializing Firebase or accessing Firebase app.';

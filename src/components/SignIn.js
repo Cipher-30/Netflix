@@ -93,7 +93,7 @@ const SignIn = () => {
                 </section>
 
                 <h1 className='text-white' >New to Netflix?<button className=' mx-2 cursor-pointer hover:border-b
-                ' onClick={() => { setIsSignIn(!isSignIn) }}>{isSignIn ? (languages[languageSelected].signIn) : (languages[languageSelected].signUp)}</button></h1>
+                ' onClick={() => { setIsSignIn(!isSignIn) }}>{isSignIn ? (languages[languageSelected].signUp)  : (languages[languageSelected].signIn)}</button></h1>
 
 
             </form>

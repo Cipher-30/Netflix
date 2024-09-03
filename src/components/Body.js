@@ -2,11 +2,6 @@ import React, { useEffect } from 'react'
 import Header from './Header'
 import { Outlet } from 'react-router-dom'
 
-// import { useDispatch } from 'react-redux'
-// import { addUser, removeUser } from '../utils/userSlice'
-
-// import { useNavigate  } from 'react-router-dom'
-
 
 
 

@@ -21,9 +21,9 @@ const Browse = () => {
         <div className='  sm:pt-6   sm:px-2   bg-gradient-to-b from-black'><Header/></div>
         </nav>
       
+        <Outlet/>
       {/* <MainContainer/>
       <SecondaryContainer/> */}
-      <Outlet/>
    
     </div>
   )
